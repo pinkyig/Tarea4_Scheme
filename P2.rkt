@@ -16,22 +16,24 @@
   )
 
 
-(define (catalan_tail n)
+(define (catalan_cola n)
 
   ;Funcion Auxiliar que llevara acabo el calculo
-  (define (helper n acc)
+  (define (cola_aux n acum)
+  ;; cola_aux: Función auxiliar que lleva a cabo el cálculo del número de Catalan utilizando recursión de cola.
+  ;; n : El número actual en la iteración.
+  ;; acum : El acumulador que contiene el resultado parcial del cálculo.
     (if (= n 0)
         
-        acc
+        acum
         
-        (helper (- n 1) (* acc (/ (* 2 (- (* 2 n) 1)) (+ n 1))))
+        (cola_aux (- n 1) (* acum (/ (* 2 (- (* 2 n) 1)) (+ n 1))))
 
         )
     )
 
   ;Llamada a la funcion Auxiliar con un n dado y acc = 1, ya que este es el valor incial de la serie
-  (helper n 1)
-
+  (cola_aux n 1)
 
   )
 
