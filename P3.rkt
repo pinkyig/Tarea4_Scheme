@@ -2,8 +2,12 @@
 
 
 
-; Función auxiliar para calcular el dígito descifrado de una fila usando una función dada
 (define calcular_digito
+
+  ; Función auxiliar para calcular el dígito descifrado de una fila usando una función dada
+  ;;
+  ;; fila : Lista de números que representa una fila de datos.
+  ;; funcion : Función que se aplica a cada elemento de la fila.
 
   (lambda (fila funcion)
     (let* ((m (length fila)))
@@ -12,7 +16,7 @@
     )
   )
 
-; Función para descifrar los mensajes usando recursión simple o cola??? XDD
+; Función para descifrar los mensajes usando recursión simple
 (define (descifrar_simple mensajes funciones)
   
   (if (null? mensajes)
@@ -30,6 +34,11 @@
 
 
 (define (descifrar_cola_aux mensajes funciones resultado)
+  ; Función auxiliar para descifrar los mensajes usando recursión de cola
+;;
+;; mensajes : Lista de listas de números, donde cada sublista representa un mensaje.
+;; funciones : Lista de funciones que se aplican a cada mensaje correspondiente.
+;; resultado : Acumulador que almacena los resultados parciales del descifrado.
 
   (if (null? mensajes)
       
@@ -49,6 +58,7 @@
 (display (descifrar_simple '((5 2 3) (3 2 4 2 25)) (list (lambda (x) (* x 5)) (lambda (x) (/ (* x 2) (+ x 2))))))
 (newline)
 (descifrar_cola '((5 2 3) (3 2 4 2 25)) (list (lambda (x) (* x 5)) (lambda (x) (/ (* x 2) (+ x 2)))))
+
 
 
 
